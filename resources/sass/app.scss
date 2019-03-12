@@ -1,14 +1,33 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans');
 @import url('https://fonts.googleapis.com/css?family=Caveat:400,700&subset=cyrillic');
 
+
 // Variables
 @import 'variables';
-
 // Mixins
 @import 'mixins';
-
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
+// Animate
+@import "~animate.css";
+
+
+.title-font {
+  font-family: 'Caveat', cursive;
+  font-size: 2rem;
+  color: $active-color;
+  font-weight: bold;
+
+  &:before {
+    height: 2px;
+    width: 25px;
+    content: "";
+    background: $active-color;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 10px;
+  }
+}
 
 .navbar-laravel {
   background-color: #fff;
@@ -17,10 +36,11 @@
 
 header.masthead {
   position: relative;
-  background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('/img/banner.jpg') no-repeat center center ;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/img/banner.jpg') no-repeat center center;
   @include background-cover;
   padding-top: 8rem;
   padding-bottom: 8rem;
+
   .overlay {
     position: absolute;
     background-color: $gray-900;
@@ -30,26 +50,11 @@ header.masthead {
     left: 0;
     opacity: 0.3;
   }
+
   h1 {
     font-size: 2rem;
   }
-  h3 {
-    &.title {
-      font-family: 'Caveat', cursive;
-      font-size: 2rem;
-      color: $active-color;
-      font-weight: bold;
-      &:before {
-        height: 2px;
-        width: 25px;
-        content: "";
-        background: $active-color;
-        display: inline-block;
-        vertical-align: middle;
-        margin-right: 10px;
-      }
-    }
-  }
+
   @media (min-width: 768px) {
     padding-top: 12rem;
     padding-bottom: 12rem;
@@ -58,3 +63,44 @@ header.masthead {
     }
   }
 }
+
+.about-corner {
+  right: 0;
+  bottom: -2%;
+}
+
+.corner-img {
+  position: absolute;
+}
+
+.bg-section {
+  position: relative;
+  background: url('/img/bg-section.jpg');
+  padding: 3rem;
+
+  @media (max-width: 768px) {
+    padding: 1rem !important;
+  }
+}
+
+.callto-action-imgbox {
+  display: block;
+  padding-left: 40px;
+  padding-top: 40px;
+  position: relative;
+  z-index: 1;
+}
+
+.callto-action-imgbox {
+  &:before {
+    border: 2px solid #eb3007;
+    bottom: 40px;
+    content: "";
+    left: 0;
+    position: absolute;
+    right: 40px;
+    top: 0;
+    z-index: -1;
+  }
+}
+

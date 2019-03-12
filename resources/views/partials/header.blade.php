@@ -4,7 +4,7 @@
         <div class="row">
 
             <div class="col-xl-9 mx-auto">
-                <h3 class="title">
+                <h3 class="title-font">
                     Мы готовим
                 </h3>
                 <h1 class="mb-3">Восхитительные блюда</h1>
