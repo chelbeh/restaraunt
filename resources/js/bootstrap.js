@@ -1,4 +1,3 @@
-
 window._ = require('lodash');
 
 /**
@@ -12,7 +11,8 @@ try {
     window.$ = window.jQuery = require('jquery');
 
     require('bootstrap');
-} catch (e) {}
+} catch (e) {
+}
 
 /**
  * We'll load the axios HTTP library which allows us to easily issue requests
@@ -39,7 +39,12 @@ if (token) {
 }
 
 window.WOW = require('wow.js');
-new WOW().init();
+let wow = new WOW(
+    {
+        mobile: false,       // trigger animations on mobile devices (default is true)
+    }
+);
+wow.init();
 
 /**
  * Echo exposes an expressive API for subscribing to channels and listening

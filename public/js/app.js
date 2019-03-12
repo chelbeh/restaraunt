@@ -49626,7 +49626,11 @@ if (token) {
 }
 
 window.WOW = __webpack_require__(/*! wow.js */ "./node_modules/wow.js/dist/wow.js");
-new WOW().init();
+var wow = new WOW({
+  mobile: false // trigger animations on mobile devices (default is true)
+
+});
+wow.init();
 /**
  * Echo exposes an expressive API for subscribing to channels and listening
  * for events that are broadcast by Laravel. Echo and event broadcasting
