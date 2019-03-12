@@ -1,4 +1,4 @@
-<section class="bg-section">
+<section class="section bg-section">
     <div class="container">
         <div class="row">
             <div class="col-xl-5 col-lg-5">
@@ -28,6 +28,6 @@
     </div>
 
     <div class="corner-img about-corner">
-        <img src="img/about-bg.png" alt="" class="wow slideInRight" data-wow-delay="2s">
+        <img src="img/about-bg.png" alt="" class="wow slideInRight">
     </div>
 </section>

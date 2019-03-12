@@ -14334,7 +14334,11 @@ header.masthead h1 {
 
 .about-corner {
   right: 0;
-  bottom: -2%;
+  bottom: 0;
+}
+
+.menu-corner {
+  left: -150px;
 }
 
 .corner-img {
@@ -14344,11 +14348,14 @@ header.masthead h1 {
 .bg-section {
   position: relative;
   background: url("/img/bg-section.jpg");
-  padding: 3rem;
+}
+
+.section {
+  padding: 5rem;
 }
 
 @media (max-width: 768px) {
-  .bg-section {
+  .section {
     padding: 1rem !important;
   }
 }
@@ -14373,14 +14380,31 @@ header.masthead h1 {
 }
 
 .parallax {
-  /* The image used */
-  background-image: url("/img/banner.jpg");
-  /* Full height */
-  height: 100%;
-  /* Create the parallax scrolling effect */
+  height: 400px;
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+.parallax.parallax-counter {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/img/parallax-counter.jpg");
+}
+
+.service-icon {
+  border-radius: 50%;
+  height: 125px;
+  line-height: 125px;
+  transition: all 0.5s ease 0s;
+  width: 125px;
+  border: 2px solid #e3342f;
+}
+
+.service-icon:hover {
+  background-color: #e3342f;
+}
+
+.service-header {
+  min-height: 60px;
 }
 

@@ -14,8 +14,6 @@
 Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('Главная');
-Route::get('/about', 'AboutController@index')->name('О компании');
-Route::get('/contact', 'ContactController@index')->name('Контакты');
 
 // Administrative panel
 
