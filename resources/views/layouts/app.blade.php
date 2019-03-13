@@ -23,6 +23,7 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/suggestions-jquery@18.11.1/dist/css/suggestions.min.css" rel="stylesheet" />
 </head>
 <body>
 
@@ -34,6 +35,7 @@
         @yield('content')
     </main>
 
+    @include('partials.footer')
 </div>
 
 @yield('scripts')

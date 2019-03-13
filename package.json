@@ -28,6 +28,7 @@
         "@ckeditor/ckeditor5-build-classic": "^12.0.0",
         "@ckeditor/ckeditor5-vue": "^1.0.0-beta.1",
         "animate.css": "^3.7.0",
+        "jquery-mask-plugin": "^1.14.15",
         "lg-autoplay": "^1.0.4",
         "lg-fullscreen": "^1.1.0",
         "lg-hash": "^1.0.4",
@@ -37,6 +38,7 @@
         "lg-video": "^1.2.2",
         "lg-zoom": "^1.1.0",
         "lightgallery": "^1.6.12",
+        "suggestions-jquery": "^19.2.0",
         "wow.js": "^1.2.2"
     }
 }

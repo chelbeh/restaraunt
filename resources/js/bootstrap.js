@@ -46,6 +46,8 @@ let wow = new WOW(
 );
 wow.init();
 
+window.mask = require('jquery-mask-plugin');
+window.suggestion = require('suggestions-jquery');
 
 /**
  * Echo exposes an expressive API for subscribing to channels and listening

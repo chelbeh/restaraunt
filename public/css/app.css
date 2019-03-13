@@ -14350,6 +14350,11 @@ header.masthead h1 {
   background: url("/img/bg-section.jpg");
 }
 
+.bg-section-black {
+  position: relative;
+  background: #000 url("/img/bg-section-black.png");
+}
+
 .section {
   padding: 5rem;
 }
@@ -14391,6 +14396,10 @@ header.masthead h1 {
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/img/parallax-counter.jpg");
 }
 
+.parallax.parallax-reviews {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/img/parallax-reviews.jpg");
+}
+
 .service-icon {
   border-radius: 50%;
   height: 125px;
@@ -14406,5 +14415,14 @@ header.masthead h1 {
 
 .service-header {
   min-height: 60px;
+}
+
+.booking-image {
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  top: 0;
+  right: 0;
+  background-image: url("/img/bg-book.jpg");
 }
 

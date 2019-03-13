@@ -79,6 +79,11 @@ header.masthead {
     background: url('/img/bg-section.jpg');
 }
 
+.bg-section-black {
+    position: relative;
+    background: #000 url('/img/bg-section-black.png');
+}
+
 .section {
     padding: 5rem;
 
@@ -119,6 +124,9 @@ header.masthead {
     &.parallax-counter {
         background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/img/parallax-counter.jpg");
     }
+    &.parallax-reviews {
+        background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/img/parallax-reviews.jpg");
+    }
 }
 
 .service-icon {
@@ -138,5 +146,14 @@ header.masthead {
     min-height: 60px;
 }
 
+.booking-image {
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    top: 0;
+    right: 0;
+    //linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    background-image: url("/img/bg-book.jpg");
+}
 
 

@@ -7,7 +7,7 @@
             <div class="section-header title-font">
                 Наши популярные блюда
             </div>
-            <h2>Меню</h2>
+            <h2 class="font-weight-bold">Меню</h2>
         </div>
     </div>
 </section>

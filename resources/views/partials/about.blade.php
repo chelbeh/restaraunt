@@ -11,7 +11,7 @@
 
                 <div class="section-heading left half xs-margin-20px-bottom">
                     <div class="title-font">Уникальное место</div>
-                    <h4>О нас</h4>
+                    <h4 class="font-weight-bold">О нас</h4>
                 </div>
 
                 <p class="width-90 xs-width-100">Restaurant food dolor sit amet, consectetur adipisicing elit, sed do
