@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use File;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -14,8 +15,9 @@ class HomeController extends Controller
     public function index()
     {
         $services = $this->services();
+        $images = $this->images();
 
-        return view('home', ['services' => $services]);
+        return view('home', ['services' => $services, 'images' => $images]);
     }
 
     /**
@@ -47,5 +49,15 @@ class HomeController extends Controller
                 'text' => "При заказе на сумму от 5000 рублей - бесплатно",
             ],
         ];
+    }
+
+    /**
+     * Get all images from gallery folder
+     *
+     * @return \Symfony\Component\Finder\SplFileInfo[]
+     */
+    private function images()
+    {
+        return File::allFiles(public_path('img/gallery'));
     }
 }

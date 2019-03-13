@@ -1,6 +1,9 @@
 <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
     <div class="container">
-        <a class="navbar-brand" href="#"> {{ config('app.name', 'Chelbeh') }}</a>
+        <a class="navbar-brand" href="#">
+            <img height="80px" src="/img/logo.png" alt="Ресторан жемчужина">
+        </a>
+        {{--<a class="navbar-brand" href="#"> {{ config('app.name', 'Chelbeh') }}</a>--}}
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
                 aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
