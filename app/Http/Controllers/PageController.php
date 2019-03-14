@@ -32,7 +32,9 @@ class PageController extends Controller
      */
     public function create()
     {
-        return view($this->view_prefix . 'create');
+        $pages = Page::all();
+
+        return view($this->view_prefix . 'create', compact('pages'));
     }
 
     /**
@@ -71,7 +73,9 @@ class PageController extends Controller
      */
     public function edit(Page $page)
     {
-        return view($this->view_prefix . 'edit', compact('page'));
+        $pages = Page::all();
+
+        return view($this->view_prefix . 'edit', compact('page', 'pages'));
     }
 
     /**

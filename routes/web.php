@@ -17,13 +17,10 @@ Route::get('/', 'HomeController@index')->name('Главная');
 
 // Administrative panel
 
-
-
 Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function () {
     Route::resource('pages', 'PageController');
     Route::delete('pages/mass_destroy', 'PageController@massDestroy')->name('pages.mass_destroy');
-    Route::resource('pages', 'PageController');
-    Route::get('/', 'Admin\AppController@index');
+    Route::get('/', 'Admin\AppController@index')->name('admin');
 });
 
 

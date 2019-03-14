@@ -1,7 +1,7 @@
 <nav class="navbar main-content navbar-top navbar-expand-md navbar-dark bg-primary" id="navbar-main">
     <div class="container-fluid">
         <!-- Brand -->
-        <a class="h4 mb-0 text-white text-uppercase d-none d-lg-inline-block" href="https://demos.creative-tim.com/argon-dashboard/index.html">Dashboard</a>
+        <a class="h4 mb-0 text-white text-uppercase d-none d-lg-inline-block" href="{{route('admin')}}">Административная панель</a>
         <!-- Form -->
         <form class="navbar-search navbar-search-dark form-inline mr-3 d-none d-md-flex ml-lg-auto" _lpchecked="1">
             <div class="form-group mb-0">
@@ -9,7 +9,7 @@
                     <div class="input-group-prepend">
                         <span class="input-group-text"><i class="fas fa-search"></i></span>
                     </div>
-                    <input class="form-control" placeholder="Search" type="text">
+                    <input class="form-control" placeholder="Поиск" type="text">
                 </div>
             </div>
         </form>
@@ -18,38 +18,38 @@
             <li class="nav-item dropdown">
                 <a class="nav-link pr-0" href="https://demos.creative-tim.com/argon-dashboard/index.html#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <div class="media align-items-center">
-                <span class="avatar avatar-sm rounded-circle">
-                  <img alt="Image placeholder" src="./Argon Dashboard - Free Dashboard for Bootstrap 4_files/team-4-800x800.jpg">
+                <span class="avatar  rounded-circle">
+                  <img alt="Аватар" src="{{asset('img/avatar.jpg')}}">
                 </span>
                         <div class="media-body ml-2 d-none d-lg-block">
-                            <span class="mb-0 text-sm  font-weight-bold">Jessica Jones</span>
+                            <span class="mb-0 text-sm  font-weight-bold">Вадим Заражевский</span>
                         </div>
                     </div>
                 </a>
                 <div class="dropdown-menu dropdown-menu-arrow dropdown-menu-right">
                     <div class=" dropdown-header noti-title">
-                        <h6 class="text-overflow m-0">Welcome!</h6>
+                        <h6 class="text-overflow m-0">Добро пожаловать!</h6>
                     </div>
                     <a href="https://demos.creative-tim.com/argon-dashboard/examples/profile.html" class="dropdown-item">
                         <i class="ni ni-single-02"></i>
-                        <span>My profile</span>
+                        <span>Профиль</span>
                     </a>
                     <a href="https://demos.creative-tim.com/argon-dashboard/examples/profile.html" class="dropdown-item">
                         <i class="ni ni-settings-gear-65"></i>
-                        <span>Settings</span>
+                        <span>Настройки</span>
                     </a>
                     <a href="https://demos.creative-tim.com/argon-dashboard/examples/profile.html" class="dropdown-item">
                         <i class="ni ni-calendar-grid-58"></i>
-                        <span>Activity</span>
+                        <span>Активность</span>
                     </a>
                     <a href="https://demos.creative-tim.com/argon-dashboard/examples/profile.html" class="dropdown-item">
                         <i class="ni ni-support-16"></i>
-                        <span>Support</span>
+                        <span>Поддержка</span>
                     </a>
                     <div class="dropdown-divider"></div>
                     <a href="https://demos.creative-tim.com/argon-dashboard/index.html#!" class="dropdown-item">
                         <i class="ni ni-user-run"></i>
-                        <span>Logout</span>
+                        <span>Выйти</span>
                     </a>
                 </div>
             </li>

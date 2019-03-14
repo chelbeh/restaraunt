@@ -88,7 +88,9 @@
 --}}
 
     <main class="main-content py-4">
-        @yield('content')
+        <div class="container-fluid">
+            @yield('content')
+        </div>
     </main>
 </div>
 
