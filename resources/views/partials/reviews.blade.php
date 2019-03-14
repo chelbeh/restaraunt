@@ -3,9 +3,9 @@
     <div class="container">
             <div class="text-center">
                 <div class="section-header title-font">
-                    Отзывы
+                    Что наши клиенты говорят
                 </div>
-                <h2 class="text-white font-weight-bold">Что наши клиенты говорят</h2>
+                <h2 class="text-white font-weight-bold"> Отзывы</h2>
 
                 <h3><i class="fas fa-quote-left text-light"></i></h3>
                 <p class="lead text-light py-5">

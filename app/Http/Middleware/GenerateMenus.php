@@ -20,6 +20,7 @@ class GenerateMenus
     {
         Menu::make('mainMenu', function ($menu) {
             $pages = Page::all();
+
             foreach ($pages as $page) {
                 $element = $menu->add($page->name, $page->url);
                 $element->link->attr(['class' => 'nav-item nav-link']);
@@ -30,9 +31,9 @@ class GenerateMenus
             $pages = App::all();
 
             foreach ($pages as $page) {
-                $menu->add($page->name, $page->url);
+                $element = $menu->add($page->name, $page->url);
+                $element->link->attr(['class' => 'nav-item nav-link']);
             }
-
         });
 
         return $next($request);

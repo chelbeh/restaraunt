@@ -4,13 +4,12 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <div class="card card-default">
+                <div class="card shadow">
                     <h5 class="card-header">Страницы <a href="{{ route('pages.create') }}"
                                                         class="btn btn-sm btn-outline-primary float-right"><i class="fas fa-plus"></i> Новая страница</a></h5>
-                    @include('helper.message')
-                    <div class="card-body">
-                        <table class="table table table-bordered table-striped">
-                            <thead>
+                    <div class="card-body table-responsive">
+                        <table class="table align-items-center table-flush">
+                            <thead class="thead-light">
                             <tr>
                                 <th>
                                     <label>

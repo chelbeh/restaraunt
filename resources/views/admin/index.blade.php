@@ -1,11 +1,20 @@
 @extends('layouts.admin')
 
 @section('content')
-    <div class="container">
+    <div class="container-fluid">
         <div class="row justify-content-center">
             <div class="col-sm-12">
-                <div class="card">
-                    <div class="card-header">Административная панель</div>
+                <div class="card shadow">
+                    <div class="card-header">
+                        <div class="row align-items-center">
+                            <div class="col-8">
+                                <h3 class="mb-0">Административная панель</h3>
+                            </div>
+                            <div class="col-4 text-right">
+                                <a href="#!" class="btn btn-sm btn-primary">Настройки</a>
+                            </div>
+                        </div>
+                    </div>
 
                     <div class="card-body">
                         @if (session('status'))

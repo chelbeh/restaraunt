@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    <meta name="author" content="chelbeh">
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
@@ -20,10 +20,17 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    {{--<link href="{{ asset('css/app.css') }}" rel="stylesheet">--}}
+    <link href="{{ asset('css/admin.css') }}" rel="stylesheet">
 </head>
 <body>
 <div id="app">
+    @include('helper.message')
+    @include('helper.errors')
+
+    @include('admin.partials.sidebar')
+    @include('admin.partials.nav')
+{{--
     <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
         <div class="container">
             <a class="navbar-brand" href="{{ url('/') }}">
@@ -78,11 +85,13 @@
             </div>
         </div>
     </nav>
+--}}
 
-    <main class="py-4">
+    <main class="main-content py-4">
         @yield('content')
     </main>
 </div>
+
 @yield('scripts')
 </body>
 </html>
