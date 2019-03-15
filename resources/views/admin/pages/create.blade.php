@@ -7,7 +7,6 @@
         <div class="col-md-9">
             <div class="card card-default">
                 <h3 class="card-header">Создание страницы</h3>
-
                 <div class="card-body">
 
                     <form action="{{ route('pages.store') }}" method="post">
@@ -37,6 +36,4 @@
             </div>
         </div>
     </div>
-@endsection
-@section('script')
 @endsection

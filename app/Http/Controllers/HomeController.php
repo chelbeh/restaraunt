@@ -16,8 +16,9 @@ class HomeController extends Controller
     {
         $services = $this->services();
         $images = $this->images();
+        $dishes = $this->dishes();
 
-        return view('home', ['services' => $services, 'images' => $images]);
+        return view('home', ['services' => $services, 'images' => $images, 'dishes' => $dishes]);
     }
 
     /**
@@ -59,5 +60,10 @@ class HomeController extends Controller
     private function images()
     {
         return File::allFiles(public_path('img/gallery'));
+    }
+
+    private function dishes()
+    {
+
     }
 }

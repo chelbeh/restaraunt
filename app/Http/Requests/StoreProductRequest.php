@@ -6,13 +6,23 @@ use Illuminate\Foundation\Http\FormRequest;
 
 /**
  * @property string name
+ * @property integer category_id
  * @property string url
- * @property string body
+ * @property float original_price
+ * @property float discount_price
+ * @property float purchase_price
+ * @property string description
+ * @property string meta_title
+ * @property string meta_description
+ * @property string meta_tags
+ * @property bool in_stock
+ * @property bool status
  *
- * Class StorePageRequest
+ * Class StoreProductRequest
  * @package App\Http\Requests
  */
-class StorePageRequest extends FormRequest
+
+class StoreProductRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -33,7 +43,7 @@ class StorePageRequest extends FormRequest
     {
         return [
             'name' => 'required',
-            'url' => 'required',
+            'url' => 'required'
         ];
     }
 }

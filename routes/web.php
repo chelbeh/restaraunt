@@ -18,9 +18,11 @@ Route::get('/', 'HomeController@index')->name('Главная');
 // Administrative panel
 
 Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function () {
-    Route::resource('pages', 'PageController');
-    Route::delete('pages/mass_destroy', 'PageController@massDestroy')->name('pages.mass_destroy');
     Route::get('/', 'Admin\AppController@index')->name('admin');
+
+    Route::resource('products', 'Admin\ProductController');
+    Route::resource('pages', 'Admin\PageController');
+    Route::delete('pages/mass_destroy', 'Admin\PageController@massDestroy')->name('pages.mass_destroy');
 });
 
 
