@@ -23,6 +23,7 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function () {
     Route::resource('products', 'Admin\ProductController');
     Route::resource('pages', 'Admin\PageController');
     Route::delete('pages/mass_destroy', 'Admin\PageController@massDestroy')->name('pages.mass_destroy');
+    Route::delete('products/mass_destroy', 'Admin\ProductsController@massDestroy')->name('products.mass_destroy');
 });
 
 

@@ -1,9 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use App\Http\Requests\StoreProductRequest;
 use App\Product;
+use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
@@ -11,6 +13,7 @@ class ProductController extends Controller
      * @var string
      */
     private $view_prefix = 'admin.products.';
+
 
     /**
      * Display a listing of the resource.
@@ -31,9 +34,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        $products = Product::all();
-
-        return view($this->view_prefix . 'create', compact('products'));
+        return view($this->view_prefix . 'create');
     }
 
     /**
@@ -55,8 +56,8 @@ class ProductController extends Controller
             'meta_title' => $request->meta_title,
             'meta_description' => $request->meta_description,
             'meta_tags' => $request->meta_tags,
-            'in_stock' => $request->in_stock,
-            'status' => $request->status
+            'in_stock' => $request->has('in_stock') ? true : false,
+            'status' => $request->has('status') ? true : false
         ]);
 
         return redirect()->route('products.index')->with(['message' => 'Успешно добавлено']);
@@ -106,11 +107,11 @@ class ProductController extends Controller
             'meta_title' => $request->meta_title,
             'meta_description' => $request->meta_description,
             'meta_tags' => $request->meta_tags,
-            'in_stock' => $request->in_stock,
-            'status' => $request->status
+            'in_stock' => $request->has('in_stock') ? true : false,
+            'status' => $request->has('status') ? true : false
         ]);
 
-        return redirect()->route('pages.index')->with(['message' => 'Успешно обновлено']);
+        return redirect()->back()->with(['message' => ['type' => 'info', 'text'=> 'Успешно обновлено']]);
     }
 
     /**
@@ -125,5 +126,24 @@ class ProductController extends Controller
         $product->delete();
 
         return redirect()->route('products.index')->with(['message' => 'Успешно удалено']);
+    }
+
+    /**
+     * Remove checked resources from storage.
+     *
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     * @throws \Exception
+     */
+    public function massDestroy(Request $request)
+    {
+        $products = explode(',', $request->input('ids'));
+
+        foreach ($products as $page_id) {
+            $product = Product::findOrFail($page_id);
+            $product->delete();
+        }
+
+        return redirect()->route('pages.index')->with(['message' => 'Успешно удалено']);
     }
 }

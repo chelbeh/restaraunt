@@ -52,7 +52,7 @@ class PageController extends Controller
             'body' => $request->body
         ]);
 
-        return redirect()->route('pages.index')->with(['message' => 'Страница успешно добавлена']);
+        return redirect()->route('pages.index')->with(['message' => 'Успешно добавлено']);
     }
 
     /**
@@ -95,7 +95,7 @@ class PageController extends Controller
         ]);
 
 
-        return redirect()->back()->with(['message' => ['type' => 'danger', 'text' => 'Страница успешно обновлена']]);
+        return redirect()->back()->with(['message' => ['type' => 'danger', 'text' => 'успешно обновлено']]);
     }
 
     /**
@@ -109,7 +109,7 @@ class PageController extends Controller
     {
         $page->delete();
 
-        return redirect()->route('pages.index')->with(['message' => 'Страница успешно удалена']);
+        return redirect()->route('pages.index')->with(['message' => 'Успешно удалено']);
     }
 
     /**
@@ -128,6 +128,6 @@ class PageController extends Controller
             $page->delete();
         }
 
-        return redirect()->route('pages.index')->with(['message' => 'Страницы успешно удалены']);
+        return redirect()->route('pages.index')->with(['message' => 'Успешно удалено']);
     }
 }
