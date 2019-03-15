@@ -94,7 +94,8 @@ class PageController extends Controller
             'body' => $request->body
         ]);
 
-        return redirect()->route('pages.index')->with(['message' => 'Страница успешно обновлена']);
+
+        return redirect()->back()->with(['message' => ['type' => 'danger', 'text' => 'Страница успешно обновлена']]);
     }
 
     /**
