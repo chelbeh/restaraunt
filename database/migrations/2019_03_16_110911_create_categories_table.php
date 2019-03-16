@@ -21,6 +21,13 @@ class CreateCategoriesTable extends Migration
             $table->softDeletes();
             $table->nestedSet();
         });
+
+        DB::table('categories')->insert(
+            array(
+                'name' => 'Первыю блюда',
+                'url' => 'first'
+            )
+        );
     }
 
     /**

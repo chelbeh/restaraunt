@@ -22,6 +22,14 @@ class CreateUsersTable extends Migration
             $table->rememberToken();
             $table->timestamps();
         });
+
+        DB::table('users')->insert(
+            array(
+                'name' => 'Вадим Заражевский',
+                'email' => 'chelbeh@gmail.com',
+                'password' => '$2y$10$HfXOP/JsQTr7NEHwPGsgEOvZlYJ5m4HXudYiDuBTo.ekUZhw3wtSa',
+            )
+        );
     }
 
     /**

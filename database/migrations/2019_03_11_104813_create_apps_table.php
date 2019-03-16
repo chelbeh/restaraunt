@@ -20,6 +20,27 @@ class CreateAppsTable extends Migration
             $table->timestamps();
             $table->softDeletes();
         });
+
+        DB::table('apps')->insert(
+            array(
+                'name' => 'Страницы',
+                'url' => 'admin/pages'
+            )
+        );
+
+        DB::table('apps')->insert(
+            array(
+                'name' => 'Товары',
+                'url' => 'admin/products'
+            )
+        );
+
+        DB::table('apps')->insert(
+            array(
+                'name' => 'Категории',
+                'url' => 'admin/categories'
+            )
+        );
     }
 
     /**

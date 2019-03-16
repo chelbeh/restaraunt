@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('content')
-    Главная страница, здесь будет сборная инфа
+    {!! $appsMenu->asUl() !!}
 @endsection
 
 

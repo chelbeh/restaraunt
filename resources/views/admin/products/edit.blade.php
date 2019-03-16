@@ -14,7 +14,8 @@
                         <div class="form-group">
                             <label for="status">В наличии</label>
                             <div class="custom-control custom-checkbox">
-                                <input value="{{$product->status}}" type="checkbox" class="custom-control-input" id="status" name="status">
+                                <input value="{{$product->status}}" type="checkbox" class="custom-control-input"
+                                       id="status" name="status">
                                 <label class="custom-control-label" for="status">&nbsp;</label>
                             </div>
                         </div>
@@ -22,7 +23,8 @@
                         <div class="form-group">
                             <label for="in_stock">Опубликован</label>
                             <div class="custom-control custom-checkbox">
-                                <input value="{{$product->in_stock}}" type="checkbox" class="custom-control-input" id="in_stock" name="in_stock">
+                                <input value="{{$product->in_stock}}" type="checkbox" class="custom-control-input"
+                                       id="in_stock" name="in_stock">
                                 <label class="custom-control-label" for="in_stock">&nbsp;</label>
                             </div>
                         </div>
@@ -34,13 +36,17 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="category_id">Категория</label>
-                            <select name="category_id" class="custom-select">
-                                <option selected>Выберите категорию</option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
-                            </select>
+                            <label for="category_id">Категории</label>
+                            @foreach($product->categories as $product_category)
+                                <select name="category_id" class="custom-select">
+                                    <option>Выберите категорию</option>
+                                    @foreach($categories as $category)
+                                        <option
+                                            @if($product_category['id'] == $category['id']) selected @endif
+                                        value="{{$category->id}}">{{$category->name}}</option>
+                                    @endforeach
+                                </select>
+                            @endforeach
                         </div>
 
                         <div class="form-group">
@@ -57,13 +63,15 @@
 
                         <div class="form-group">
                             <label for="discount_price">Цена со скидкой</label>
-                            <input type="number" class="form-control" name="discount_price" placeholder="Введите цену со скидкой"
+                            <input type="number" class="form-control" name="discount_price"
+                                   placeholder="Введите цену со скидкой"
                                    value="{{$product->discount_price}}">
                         </div>
 
                         <div class="form-group">
                             <label for="purchase_price">Цена закупочная</label>
-                            <input type="number" class="form-control" name="purchase_price" placeholder="Введите закупочную цену"
+                            <input type="number" class="form-control" name="purchase_price"
+                                   placeholder="Введите закупочную цену"
                                    value="{{$product->purchase_price}}">
                         </div>
 

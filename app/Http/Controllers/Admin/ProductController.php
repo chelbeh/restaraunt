@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Category;
 use App\Http\Requests\StoreProductRequest;
 use App\Product;
 use App\Http\Controllers\Controller;
@@ -34,7 +35,9 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view($this->view_prefix . 'create');
+        $categories = Category::all();
+
+        return view($this->view_prefix . 'create', compact('categories'));
     }
 
     /**
@@ -45,9 +48,8 @@ class ProductController extends Controller
      */
     public function store(StoreProductRequest $request)
     {
-        Product::create([
+        $product = Product::create([
             'name' => $request->name,
-            'category_id' => $request->category_id,
             'url' => $request->url,
             'original_price' => $request->original_price,
             'discount_price' => $request->discount_price,
@@ -59,6 +61,9 @@ class ProductController extends Controller
             'in_stock' => $request->has('in_stock') ? true : false,
             'status' => $request->has('status') ? true : false
         ]);
+
+
+        $product->categories()->attach($request->category_id);
 
         return redirect()->route('products.index')->with(['message' => 'Успешно добавлено']);
     }
@@ -82,9 +87,9 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        $products = Product::all();
+        $categories = Category::all();
 
-        return view($this->view_prefix . 'edit', compact('product', 'products'));
+        return view($this->view_prefix . 'edit', compact('product', 'categories'));
     }
 
     /**

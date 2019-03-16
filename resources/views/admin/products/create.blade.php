@@ -36,9 +36,11 @@
                             <label for="category_id">Категория</label>
                             <select name="category_id" class="custom-select">
                                 <option selected>Выберите категорию</option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
+                                
+                                @foreach($categories as $category)
+                                    <option value="{{$category->id}}">{{$category->name}}</option>
+                                @endforeach
+
                             </select>
                         </div>
 
@@ -56,13 +58,15 @@
 
                         <div class="form-group">
                             <label for="discount_price">Цена со скидкой</label>
-                            <input type="number" class="form-control" name="discount_price" placeholder="Введите цену со скидкой"
+                            <input type="number" class="form-control" name="discount_price"
+                                   placeholder="Введите цену со скидкой"
                                    value="{{old('discount_price')}}">
                         </div>
 
                         <div class="form-group">
                             <label for="purchase_price">Цена закупочная</label>
-                            <input type="number" class="form-control" name="purchase_price" placeholder="Введите закупочную цену"
+                            <input type="number" class="form-control" name="purchase_price"
+                                   placeholder="Введите закупочную цену"
                                    value="{{old('purchase_price')}}">
                         </div>
 
