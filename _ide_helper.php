@@ -3,7 +3,7 @@
 
 /**
  * A helper file for Laravel 5, to provide autocomplete information to your IDE
- * Generated for Laravel 5.7.28 on 2019-03-07 07:37:38.
+ * Generated for Laravel 5.7.28 on 2019-03-16 11:34:21.
  *
  * This file should not be included in your code, only analyzed by your IDE!
  *
@@ -17061,6 +17061,8 @@ namespace  {
 
     class Mail extends \Illuminate\Support\Facades\Mail {}
 
+    class Menu extends \Lavary\Menu\Facade {}
+
     class Notification extends \Illuminate\Support\Facades\Notification {}
 
     class Password extends \Illuminate\Support\Facades\Password {}
@@ -17086,8 +17088,6 @@ namespace  {
     class Validator extends \Illuminate\Support\Facades\Validator {}
 
     class View extends \Illuminate\Support\Facades\View {}
-
-    class Menu extends \Lavary\Menu\Facade {}
  
 }
 

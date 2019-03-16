@@ -94,8 +94,7 @@ class PageController extends Controller
             'body' => $request->body
         ]);
 
-
-        return redirect()->back()->with(['message' => ['type' => 'danger', 'text' => 'успешно обновлено']]);
+        return redirect()->back()->with(['message' => ['type' => 'info', 'text' => 'успешно обновлено']]);
     }
 
     /**
@@ -109,7 +108,7 @@ class PageController extends Controller
     {
         $page->delete();
 
-        return redirect()->route('pages.index')->with(['message' => 'Успешно удалено']);
+        return redirect()->route('pages.index')->with(['message' => ['type' => 'info', 'text' => 'успешно удалено']]);
     }
 
     /**

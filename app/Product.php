@@ -18,4 +18,12 @@ class Product extends Model
      * @var array
      */
     protected $dates = ['deleted_at'];
+
+    /**
+     * One category can has many products
+     */
+    public function categories()
+    {
+        $this->belongsTo(Category::class);
+    }
 }

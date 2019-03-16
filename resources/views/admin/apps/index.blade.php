@@ -4,9 +4,9 @@
     <div class="row">
         <div class="col-md-12">
             <div class="card shadow">
-                <h3 class="card-header">Товары <a href="{{ route('products.create') }}"
-                                                    class="btn btn-sm btn-outline-primary float-right"><i
-                                claass="fas fa-plus"></i> Новый товар</a></h3>
+                <h3 class="card-header">Приложения <a href="{{ route('apps.create') }}"
+                                                      class="btn btn-sm btn-outline-primary float-right"><i
+                            class="fas fa-plus"></i> Новое приложение</a></h3>
                 <div class="card-body table-responsive">
                     <table class="table align-items-center table-flush table-sm">
                         <thead class="thead-light">
@@ -15,8 +15,8 @@
                                 <label>
                                     <div class="custom-control custom-checkbox">
                                         <input type="checkbox" class="checkbox_all custom-control-input checkbox_delete"
-                                               id="product-check-all" name="entries_to_delete[]">
-                                        <label class="custom-control-label" for="product-check-all">&nbsp;</label>
+                                               id="app-check-all" name="entries_to_delete[]">
+                                        <label class="custom-control-label" for="app-check-all">&nbsp;</label>
                                     </div>
                                 </label>
                             </th>
@@ -26,24 +26,24 @@
                         </tr>
                         </thead>
                         <tbody>
-                        @forelse($products as $product)
+                        @forelse($apps as $app)
                             <tr>
                                 <td>
                                     <div class="custom-control custom-checkbox">
-                                        <input value="{{ $product->id }}" type="checkbox"
+                                        <input value="{{ $app->id }}" type="checkbox"
                                                class="custom-control-input checkbox_delete"
-                                               id="product-check-{{ $product->id }}" name="entries_to_delete[]">
+                                               id="app-check-{{ $app->id }}" name="entries_to_delete[]">
                                         <label class="custom-control-label"
-                                               for="product-check-{{ $product->id }}">&nbsp;</label>
+                                               for="app-check-{{ $app->id }}">&nbsp;</label>
                                     </div>
                                 </td>
-                                <td><a href="/{{ $product->url }}">{{ $product->name }}</a></td>
+                                <td><a href="/{{ $app->url }}">{{ $app->name }}</a></td>
                                 <td>
-                                    <a href="{{ route('products.edit', $product->id) }}" class="btn btn-sm btn-info"> <i
-                                                class="fas fa-edit text-white"></i></a>
+                                    <a href="{{ route('apps.edit', $app->id) }}" class="btn btn-sm btn-info"> <i
+                                            class="fas fa-edit text-white"></i></a>
                                 </td>
                                 <td>
-                                    <form action="{{ route('products.destroy', $product->id) }}" method="POST"
+                                    <form action="{{ route('apps.destroy', $app->id) }}" method="POST"
                                           style="display: inline"
                                           onsubmit="return confirm('Вы уверены?');">
                                         @csrf
@@ -59,7 +59,7 @@
                         @endforelse
                         </tbody>
                     </table>
-                    <form action="{{ route('products.mass_destroy') }}" method="post"
+                    <form action="{{ route('apps.mass_destroy') }}" method="post"
                           onsubmit="return confirm('Вы уверены?');">
                         @csrf
                         <input type="hidden" name="_method" value="DELETE">

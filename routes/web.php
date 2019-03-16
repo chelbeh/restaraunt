@@ -20,8 +20,11 @@ Route::get('/', 'HomeController@index')->name('Главная');
 Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function () {
     Route::get('/', 'Admin\AppController@index')->name('admin');
 
+    Route::resource('apps', 'Admin\AppController');
     Route::resource('products', 'Admin\ProductController');
+    Route::resource('categories', 'Admin\CategoryController');
     Route::resource('pages', 'Admin\PageController');
+    Route::delete('apps/mass_destroy', 'Admin\AppController@massDestroy')->name('apps.mass_destroy');
     Route::delete('pages/mass_destroy', 'Admin\PageController@massDestroy')->name('pages.mass_destroy');
     Route::delete('products/mass_destroy', 'Admin\ProductsController@massDestroy')->name('products.mass_destroy');
 });

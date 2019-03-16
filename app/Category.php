@@ -4,10 +4,12 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Kalnoy\Nestedset\NodeTrait;
 
-class App extends Model
+class Category extends Model
 {
     use SoftDeletes;
+    use NodeTrait;
     /**
      *
      * @var array
@@ -18,4 +20,12 @@ class App extends Model
      * @var array
      */
     protected $dates = ['deleted_at'];
+
+    /**
+     * One category can has many products
+     */
+    public function products()
+    {
+        $this->hasMany(Product::class);
+    }
 }
