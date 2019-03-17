@@ -24,6 +24,18 @@
                                    value="{{$category->url}}">
                         </div>
 
+                        <div class="form-group">
+                            <label for="category_id">Родительская категория</label>
+                                <select name="category_id" class="custom-select">
+                                    <option>Выберите категорию</option>
+                                    @foreach($categories as $c)
+                                        <option
+                                            @if($category['parent_id'] == $c['id']) selected @endif
+                                        value="{{$c->id}}">{{$c->name}}</option>
+                                    @endforeach
+                                </select>
+                        </div>
+
                         <button type="submit" class="btn btn-primary">Сохранить категорию</button>
                     </form>
                 </div>

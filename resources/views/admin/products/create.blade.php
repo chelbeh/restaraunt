@@ -10,7 +10,7 @@
                     <form action="{{ route('products.store') }}" method="post">
                         @csrf
 
-                        <div class="form-group">
+                       {{-- <div class="form-group">
                             <label for="status">В наличии</label>
                             <div class="custom-control custom-checkbox">
                                 <input type="checkbox" class="custom-control-input" id="status" name="status">
@@ -24,7 +24,7 @@
                                 <input type="checkbox" class="custom-control-input" id="in_stock" name="in_stock">
                                 <label class="custom-control-label" for="in_stock">&nbsp;</label>
                             </div>
-                        </div>
+                        </div>--}}
 
                         <div class="form-group">
                             <label for="name">Название</label>
@@ -38,7 +38,7 @@
                                 <option selected>Выберите категорию</option>
 
                                 @foreach($categories as $category)
-                                    <option value="{{$category->id}}">{{$category->name}}</option>
+                                    <option @if($category->id == 6) selected @endif value="{{$category->id}}">{{$category->name}}</option>
                                 @endforeach
 
                             </select>
@@ -56,7 +56,7 @@
                                    value="{{old('original_price')}}">
                         </div>
 
-                        <div class="form-group">
+                    {{--    <div class="form-group">
                             <label for="discount_price">Цена со скидкой</label>
                             <input type="number" class="form-control" name="discount_price"
                                    placeholder="Введите цену со скидкой"
@@ -68,7 +68,7 @@
                             <input type="number" class="form-control" name="purchase_price"
                                    placeholder="Введите закупочную цену"
                                    value="{{old('purchase_price')}}">
-                        </div>
+                        </div>--}}
 
                         <div class="form-group">
                             <label for="description">Описание</label>

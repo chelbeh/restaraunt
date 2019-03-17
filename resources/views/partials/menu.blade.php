@@ -20,19 +20,20 @@
             @endforeach
         </ul>
 
-        <div class="tab-content">
+        <div class="tab-content row">
             @foreach($dishes as $key => $category)
                 <div class="tab-pane {{ $key==0 ? 'active' : ''}}" id="{{$category['url']}}" role="tabpanel"
                      aria-labelledby="{{$category['url']}}-tab">
 
-                    <div class="card-deck">
+                    <div class="row">
                         @forelse($category->products as $product)
-                            <div class="card">
+                            <div class="card col-3">
                                 <div class="card-body">
-                                    <h5 class="card-title">
+                                    <h5 class="card-title m-0 p-0">
                                         {{$product->name}}
-                                        <span class="badge badge-primary float-right">{{$product->original_price}}</span>
                                     </h5>
+                                    <h5><span class="badge badge-primary">{{number_format($product->original_price, 0)}} ₽</span></h5>
+
                                     <h6 class="card-subtitle mb-2 text-muted">{{$product->portion}}</h6>
                                     <p class="card-text">
                                         {{$product->description}}

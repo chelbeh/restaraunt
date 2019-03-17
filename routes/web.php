@@ -19,8 +19,10 @@ Route::get('/', 'HomeController@index')->name('Главная');
 
 Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function () {
     Route::get('/', 'Admin\AppController@index')->name('admin');
+    Route::get('exchange', 'Admin\ExchangeController@index')->name('exchange');
 
     Route::resource('apps', 'Admin\AppController');
+    Route::resource('importcsv', 'Admin\ImportCsvController');
     Route::resource('products', 'Admin\ProductController');
     Route::resource('categories', 'Admin\CategoryController');
     Route::resource('pages', 'Admin\PageController');

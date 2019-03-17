@@ -33,7 +33,9 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return view($this->view_prefix . 'create');
+        $categories = Category::all();
+
+        return view($this->view_prefix . 'create', compact('categories'));
     }
 
     /**
@@ -47,7 +49,7 @@ class CategoryController extends Controller
         Category::create([
             'name' => $request->name,
             'url' => $request->url,
-        ]); // TODO parent Category::find($parent_id)
+        ], Category::find($request->parent_id)); // TODO parent Category::find($parent_id)
 
         return redirect()->route('categories.index')->with(['message' => 'Успешно добавлено']);
     }
@@ -55,7 +57,7 @@ class CategoryController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Category  $category
+     * @param  \App\Category $category
      * @return \Illuminate\Http\Response
      */
     public function show(Category $category)
@@ -66,7 +68,7 @@ class CategoryController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Category  $category
+     * @param  \App\Category $category
      * @return \Illuminate\Http\Response
      */
     public function edit(Category $category)
@@ -87,7 +89,8 @@ class CategoryController extends Controller
     {
         $category->update([
             'name' => $request->name,
-            'url' => $request->url
+            'url' => $request->url,
+            'parent_id' => $request->parent_id
         ]);
 
         return redirect()->back()->with(['message' => ['type' => 'info', 'text' => 'успешно обновлено']]);
