@@ -55,6 +55,7 @@ class ProductController extends Controller
             'discount_price' => $request->discount_price,
             'purchase_price' => $request->purchase_price,
             'description' => $request->description,
+            'portion' => $request->portion,
             'meta_title' => $request->meta_title,
             'meta_description' => $request->meta_description,
             'meta_tags' => $request->meta_tags,
@@ -63,7 +64,7 @@ class ProductController extends Controller
         ]);
 
 
-        $product->categories()->attach($request->category_id);
+        $product->categories()->sync([$request->category_id]);
 
         return redirect()->route('products.index')->with(['message' => 'Успешно добавлено']);
     }
@@ -103,18 +104,20 @@ class ProductController extends Controller
     {
         $product->update([
             'name' => $request->name,
-            'category_id' => $request->category_id,
             'url' => $request->url,
             'original_price' => $request->original_price,
             'discount_price' => $request->discount_price,
             'purchase_price' => $request->purchase_price,
             'description' => $request->description,
+            'portion' => $request->portion,
             'meta_title' => $request->meta_title,
             'meta_description' => $request->meta_description,
             'meta_tags' => $request->meta_tags,
             'in_stock' => $request->has('in_stock') ? true : false,
             'status' => $request->has('status') ? true : false
         ]);
+
+        $product->categories()->sync([$request->category_id]);
 
         return redirect()->back()->with(['message' => ['type' => 'info', 'text'=> 'Успешно обновлено']]);
     }

@@ -12,6 +12,7 @@ use Illuminate\Foundation\Http\FormRequest;
  * @property float discount_price
  * @property float purchase_price
  * @property string description
+ * @property string portion
  * @property string meta_title
  * @property string meta_description
  * @property string meta_tags

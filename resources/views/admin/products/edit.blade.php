@@ -81,6 +81,12 @@
                                       placeholder="Введите описание">{{$product->description}}</textarea>
                         </div>
 
+                        <div class="form-group">
+                            <label for="portion">Порция</label>
+                            <input type="text" class="form-control" name="portion" placeholder="Введите порцию"
+                                   value="{{$product->portion}}">
+                        </div>
+
                         <button type="submit" class="btn btn-primary">Сохранить товар</button>
                     </form>
                 </div>

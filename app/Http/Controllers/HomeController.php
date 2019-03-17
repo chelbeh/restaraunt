@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
+use App\Product;
 use File;
 use Illuminate\Http\Request;
 
@@ -62,8 +64,15 @@ class HomeController extends Controller
         return File::allFiles(public_path('img/gallery'));
     }
 
+    /**
+     * Get all categories and products
+     *
+     * @return Category[]|\Illuminate\Database\Eloquent\Collection
+     */
     private function dishes()
     {
+        $dishes = Category::all();
 
+        return $dishes;
     }
 }
