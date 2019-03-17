@@ -12,11 +12,27 @@
 
         <ul class="nav nav-tabs" id="menu-tab" role="tablist">
             @foreach($dishes as $key => $category)
-                <li class="nav-item ">
-                    <a class="nav-link {{ $key==0 ? 'active' : ''}}" id="{{$category['url']}}-tab"
-                       data-toggle="tab-{{$category['url']}}" href="#{{$category['url']}}" role="tab"
-                       aria-controls="home" aria-selected="true">{{$category->name}}</a>
-                </li>
+                @if($category->depth == 0)
+                    @if(count($category->descendants) == 0)
+                        <li class="nav-item ">
+                            <a class="nav-link {{ $key==0 ? 'active' : ''}}" id="{{$category->url}}-tab"
+                               data-toggle="tab-{{$category->url}}" href="#{{$category->url}}" role="tab"
+                               aria-controls="home" aria-selected="true">{{$category->name}}</a>
+                        </li>
+                    @else
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"
+                               aria-haspopup="true" aria-expanded="false">
+                                {{$category->name}}
+                            </a>
+                            <div class="dropdown-menu">
+                                @foreach($category->descendants as $descendant)
+                                    <a class="dropdown-item" href="#{{$descendant->url}}">{{$descendant->name}}</a>
+                                @endforeach
+                            </div>
+                        </li>
+                    @endif
+                @endif
             @endforeach
         </ul>
 
@@ -32,9 +48,15 @@
                                     <h5 class="card-title m-0 p-0">
                                         {{$product->name}}
                                     </h5>
-                                    <h5><span class="badge badge-primary">{{number_format($product->original_price, 0)}} ₽</span></h5>
+
+                                    <h5>
+                                        <span class="badge badge-primary">
+                                            {{number_format($product->original_price, 0)}} ₽
+                                        </span>
+                                    </h5>
 
                                     <h6 class="card-subtitle mb-2 text-muted">{{$product->portion}}</h6>
+
                                     <p class="card-text">
                                         {{$product->description}}
                                     </p>

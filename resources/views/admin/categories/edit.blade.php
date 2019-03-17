@@ -25,8 +25,8 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="category_id">Родительская категория</label>
-                                <select name="category_id" class="custom-select">
+                            <label for="parent_id">Родительская категория</label>
+                                <select name="parent_id" class="custom-select">
                                     <option>Выберите категорию</option>
                                     @foreach($categories as $c)
                                         <option

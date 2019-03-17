@@ -71,7 +71,7 @@ class HomeController extends Controller
      */
     private function dishes()
     {
-        $dishes = Category::all();
+        $dishes = Category::withDepth()->get();
 
         return $dishes;
     }
