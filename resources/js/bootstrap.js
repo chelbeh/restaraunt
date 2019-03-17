@@ -48,6 +48,7 @@ wow.init();
 
 window.mask = require('jquery-mask-plugin');
 window.suggestion = require('suggestions-jquery');
+window.translit = require('cyrillic-to-translit-js');
 
 /**
  * Echo exposes an expressive API for subscribing to channels and listening

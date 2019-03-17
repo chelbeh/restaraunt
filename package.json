@@ -29,6 +29,7 @@
         "@ckeditor/ckeditor5-vue": "^1.0.0-beta.1",
         "@creative-tim-official/argon-dashboard-free": "^1.0.0",
         "animate.css": "^3.7.0",
+        "cyrillic-to-translit-js": "^2.1.0",
         "jquery-mask-plugin": "^1.14.15",
         "lg-autoplay": "^1.0.4",
         "lg-fullscreen": "^1.1.0",

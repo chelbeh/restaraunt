@@ -30,4 +30,13 @@
             </div>
         </div>
     </div>
+    <script>
+        $(document).ready(function () {
+            $("input[name='name']").on("change paste keyup", function () {
+                let url_value = translit().transform($(this).val(), '-');
+                let url_formatted = url_value.toLowerCase().replace("'", "");
+                $("input[name='url']").val(url_formatted);
+            });
+        });
+    </script>
 @endsection

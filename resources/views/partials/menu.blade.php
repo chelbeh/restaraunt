@@ -9,7 +9,8 @@
             </div>
             <h2 class="font-weight-bold">Меню</h2>
         </div>
-        <ul class="nav nav-tabs" id="menu_tab" role="tablist">
+
+        <ul class="nav nav-tabs" id="menu-tab" role="tablist">
             @foreach($dishes as $key => $category)
                 <li class="nav-item ">
                     <a class="nav-link {{ $key==0 ? 'active' : ''}}" id="{{$category['url']}}-tab"
@@ -18,6 +19,7 @@
                 </li>
             @endforeach
         </ul>
+
         <div class="tab-content">
             @foreach($dishes as $key => $category)
                 <div class="tab-pane {{ $key==0 ? 'active' : ''}}" id="{{$category['url']}}" role="tabpanel"
@@ -50,7 +52,7 @@
     </div>
 </section>
 <script>
-    $('#menu_tab a').on('click', function (e) {
+    $('#menu-tab a').on('click', function (e) {
         e.preventDefault();
         $(this).tab('show')
     })

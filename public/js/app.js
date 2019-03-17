@@ -6199,6 +6199,119 @@ module.exports = {
 
 /***/ }),
 
+/***/ "./node_modules/cyrillic-to-translit-js/CyrillicToTranslit.js":
+/*!********************************************************************!*\
+  !*** ./node_modules/cyrillic-to-translit-js/CyrillicToTranslit.js ***!
+  \********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+﻿
+
+module.exports = function cyrillicToTranslit(config) {
+  const _preset = config ? config.preset : "ru";
+
+  const _firstLetterAssociations = {
+    "а": "a",
+    "б": "b",
+    "в": "v",
+    "ґ": "g",
+    "г": "g",
+    "д": "d",
+    "е": "e",
+    "ё": "e",
+    "є": "ye",
+    "ж": "zh",
+    "з": "z",
+    "и": "i",
+    "і": "i",
+    "ї": "yi",
+    "й": "i",
+    "к": "k",
+    "л": "l",
+    "м": "m",
+    "н": "n",
+    "о": "o",
+    "п": "p",
+    "р": "r",
+    "с": "s",
+    "т": "t",
+    "у": "u",
+    "ф": "f",
+    "х": "h",
+    "ц": "c",
+    "ч": "ch",
+    "ш": "sh",
+    "щ": "sh'",
+    "ъ": "",
+    "ы": "i",
+    "ь": "",
+    "э": "e",
+    "ю": "yu",
+    "я": "ya",
+  };
+
+  if (_preset === "uk") {
+    Object.assign(_firstLetterAssociations, {
+      "г": "h",
+      "и": "y",
+      "й": "y",
+      "х": "kh",
+      "ц": "ts",
+      "щ": "shch",
+      "'": "",
+      "’": "",
+      "ʼ": "",
+    });
+  }
+
+  const _associations = Object.assign({}, _firstLetterAssociations);
+
+  if (_preset === "uk") {
+    Object.assign(_associations, {
+      "є": "ie",
+      "ї": "i",
+      "й": "i",
+      "ю": "iu",
+      "я": "ia",
+    });
+  }
+
+  function transform(input, spaceReplacement) {
+    if (!input) {
+      return "";
+    }
+
+    let newStr = "";
+    for (let i = 0; i < input.length; i++) {
+      const isUpperCaseOrWhatever = input[i] === input[i].toUpperCase();
+      let strLowerCase = input[i].toLowerCase();
+      if (strLowerCase === " " && spaceReplacement) {
+        newStr += spaceReplacement;
+        continue;
+      }
+      let newLetter = _preset === "uk" && strLowerCase === "г" && i > 0 && input[i - 1].toLowerCase() === "з"
+        ? "gh"
+        : (i === 0 ? _firstLetterAssociations : _associations)[strLowerCase];
+      if ("undefined" === typeof newLetter) {
+        newStr += isUpperCaseOrWhatever ? strLowerCase.toUpperCase() : strLowerCase;
+      }
+      else {
+        newStr += isUpperCaseOrWhatever ? newLetter.toUpperCase() : newLetter;
+      }
+    }
+    return newStr;
+  }
+
+  return {
+    transform: transform
+  };
+};
+
+
+/***/ }),
+
 /***/ "./node_modules/is-buffer/index.js":
 /*!*****************************************!*\
   !*** ./node_modules/is-buffer/index.js ***!
@@ -42465,6 +42578,7 @@ var wow = new WOW({
 wow.init();
 window.mask = __webpack_require__(/*! jquery-mask-plugin */ "./node_modules/jquery-mask-plugin/dist/jquery.mask.js");
 window.suggestion = __webpack_require__(/*! suggestions-jquery */ "./node_modules/suggestions-jquery/dist/js/jquery.suggestions.js");
+window.translit = __webpack_require__(/*! cyrillic-to-translit-js */ "./node_modules/cyrillic-to-translit-js/CyrillicToTranslit.js");
 /**
  * Echo exposes an expressive API for subscribing to channels and listening
  * for events that are broadcast by Laravel. Echo and event broadcasting
@@ -42510,9 +42624,9 @@ window.suggestion = __webpack_require__(/*! suggestions-jquery */ "./node_module
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /home/chelbeh/code/vadim-z/resources/js/app.js */"./resources/js/app.js");
-__webpack_require__(/*! /home/chelbeh/code/vadim-z/resources/sass/app.scss */"./resources/sass/app.scss");
-module.exports = __webpack_require__(/*! /home/chelbeh/code/vadim-z/resources/sass/admin/admin.scss */"./resources/sass/admin/admin.scss");
+__webpack_require__(/*! /home/chelbeh/code/restaraunt/resources/js/app.js */"./resources/js/app.js");
+__webpack_require__(/*! /home/chelbeh/code/restaraunt/resources/sass/app.scss */"./resources/sass/app.scss");
+module.exports = __webpack_require__(/*! /home/chelbeh/code/restaraunt/resources/sass/admin/admin.scss */"./resources/sass/admin/admin.scss");
 
 
 /***/ })
