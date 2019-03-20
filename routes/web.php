@@ -13,7 +13,9 @@
 
 Auth::routes();
 
-Route::get('/', 'HomeController@index')->name('Главная');
+Route::get('/', 'HomeController@index')->name('home');
+Route::post('feedback/store', 'FeedbackController@store')->name('feedback.store');
+
 
 // Administrative panel
 

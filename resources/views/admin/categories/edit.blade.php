@@ -3,7 +3,7 @@
 @section('content')
     <div class="row">
 
-        <div class="col-md-9">
+        <div class="col-md-12">
             <div class="card card-default shadow">
                 <h3 class="card-header">{{$category->name}}</h3>
 

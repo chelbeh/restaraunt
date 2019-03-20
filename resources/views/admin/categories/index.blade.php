@@ -21,6 +21,7 @@
                                 </label>
                             </th>
                             <th>Название</th>
+                            <th>Родительская категория</th>
                             <th>Редактировать</th>
                             <th>Удалить</th>
                         </tr>
@@ -38,6 +39,7 @@
                                     </div>
                                 </td>
                                 <td><a href="/{{ $category->url }}">{{ $category->name }}</a></td>
+                                <td>{{ implode(' > ', $category->ancestors->pluck('name')->toArray())}}</td>
                                 <td>
                                     <a href="{{ route('categories.edit', $category->id) }}" class="btn btn-sm btn-info"> <i
                                             class="fas fa-edit text-white"></i></a>

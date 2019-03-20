@@ -5,8 +5,8 @@
         <div class="col-md-12">
             <div class="card shadow">
                 <h3 class="card-header">Товары <a href="{{ route('products.create') }}"
-                                                    class="btn btn-sm btn-outline-primary float-right"><i
-                                claass="fas fa-plus"></i> Новый товар</a></h3>
+                                                  class="btn btn-sm btn-outline-primary float-right"><i
+                            claass="fas fa-plus"></i> Новый товар</a></h3>
                 <div class="card-body table-responsive">
                     <table class="table align-items-center table-flush table-sm">
                         <thead class="thead-light">
@@ -21,6 +21,7 @@
                                 </label>
                             </th>
                             <th>Название</th>
+                            <th>Категория</th>
                             <th>Редактировать</th>
                             <th>Удалить</th>
                         </tr>
@@ -39,8 +40,13 @@
                                 </td>
                                 <td><a href="/{{ $product->url }}">{{ $product->name }}</a></td>
                                 <td>
+                                    @foreach($product->categories as $product_category)
+                                        {{$product_category->name}}
+                                    @endforeach
+                                </td>
+                                <td>
                                     <a href="{{ route('products.edit', $product->id) }}" class="btn btn-sm btn-info"> <i
-                                                class="fas fa-edit text-white"></i></a>
+                                            class="fas fa-edit text-white"></i></a>
                                 </td>
                                 <td>
                                     <form action="{{ route('products.destroy', $product->id) }}" method="POST"

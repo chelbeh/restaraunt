@@ -38,7 +38,7 @@
                                 <option selected>Выберите категорию</option>
 
                                 @foreach($categories as $category)
-                                    <option @if($category->id == 6) selected @endif value="{{$category->id}}">{{$category->name}}</option>
+                                    <option @if($category->id == 9) selected @endif value="{{$category->id}}">{{$category->name}}</option>
                                 @endforeach
 
                             </select>
