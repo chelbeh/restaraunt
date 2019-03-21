@@ -63,7 +63,6 @@ class ProductController extends Controller
             'status' => $request->has('status') ? true : false
         ]);
 
-
         $product->categories()->sync([$request->category_id]);
 
         return redirect()->route('products.index')->with(['message' => 'Успешно добавлено']);

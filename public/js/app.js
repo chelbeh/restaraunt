@@ -42624,9 +42624,9 @@ window.translit = __webpack_require__(/*! cyrillic-to-translit-js */ "./node_mod
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /home/chelbeh/code/restaraunt/resources/js/app.js */"./resources/js/app.js");
-__webpack_require__(/*! /home/chelbeh/code/restaraunt/resources/sass/app.scss */"./resources/sass/app.scss");
-module.exports = __webpack_require__(/*! /home/chelbeh/code/restaraunt/resources/sass/admin/admin.scss */"./resources/sass/admin/admin.scss");
+__webpack_require__(/*! /home/chelbeh/code/vadim-z/resources/js/app.js */"./resources/js/app.js");
+__webpack_require__(/*! /home/chelbeh/code/vadim-z/resources/sass/app.scss */"./resources/sass/app.scss");
+module.exports = __webpack_require__(/*! /home/chelbeh/code/vadim-z/resources/sass/admin/admin.scss */"./resources/sass/admin/admin.scss");
 
 
 /***/ })
