@@ -2,21 +2,23 @@
 
 namespace App;
 
+use Eloquent;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
  * App\Page
  *
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Page newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Page newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Page query()
- * @mixin \Eloquent
+ * @method static Builder|Page newModelQuery()
+ * @method static Builder|Page newQuery()
+ * @method static Builder|Page query()
+ * @mixin Eloquent
  * @method static bool|null forceDelete()
- * @method static \Illuminate\Database\Query\Builder|\App\Page onlyTrashed()
+ * @method static \Illuminate\Database\Query\Builder|Page onlyTrashed()
  * @method static bool|null restore()
- * @method static \Illuminate\Database\Query\Builder|\App\Page withTrashed()
- * @method static \Illuminate\Database\Query\Builder|\App\Page withoutTrashed()
+ * @method static \Illuminate\Database\Query\Builder|Page withTrashed()
+ * @method static \Illuminate\Database\Query\Builder|Page withoutTrashed()
  */
 class Page extends Model
 {

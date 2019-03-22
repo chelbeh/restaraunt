@@ -5,10 +5,11 @@ namespace App\Http\Controllers\Admin;
 use App\Category;
 use App\Http\Requests\StoreCategoryRequest;
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+use Exception;
+use Illuminate\Http\Response;
 
-class CategoryController extends Controller
-{
+class CategoryController extends Controller {
+
     /**
      * @var string
      */
@@ -17,7 +18,7 @@ class CategoryController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function index()
     {
@@ -29,7 +30,7 @@ class CategoryController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function create()
     {
@@ -41,15 +42,16 @@ class CategoryController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param StoreCategoryRequest $request
-     * @return \Illuminate\Http\Response
+     * @param  StoreCategoryRequest  $request
+     *
+     * @return Response
      */
     public function store(StoreCategoryRequest $request)
     {
         Category::create([
             'name' => $request->name,
             'url' => $request->url,
-        ], Category::find($request->parent_id)); // TODO parent Category::find($parent_id)
+        ], Category::find($request->parent_id));
 
         return redirect()->route('categories.index')->with(['message' => 'Успешно добавлено']);
     }
@@ -57,19 +59,21 @@ class CategoryController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Category $category
-     * @return \Illuminate\Http\Response
+     * @param  Category  $category
+     *
+     * @return Response
      */
     public function show(Category $category)
     {
-        //
+        return view($this->view_prefix . 'show', compact('category'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Category $category
-     * @return \Illuminate\Http\Response
+     * @param  Category  $category
+     *
+     * @return Response
      */
     public function edit(Category $category)
     {
@@ -81,9 +85,10 @@ class CategoryController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param StoreCategoryRequest $request
-     * @param  \App\Category $category
-     * @return \Illuminate\Http\Response
+     * @param  StoreCategoryRequest  $request
+     * @param  Category  $category
+     *
+     * @return \Response
      */
     public function update(StoreCategoryRequest $request, Category $category)
     {
@@ -93,20 +98,21 @@ class CategoryController extends Controller
             'parent_id' => $request->parent_id
         ]);
 
-        return redirect()->back()->with(['message' => ['type' => 'info', 'text' => 'успешно обновлено']]);
+        return $this->redirectBackWithMessage('info', 'успешно обновлено');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Category $category
-     * @return \Illuminate\Http\Response
-     * @throws \Exception
+     * @param  Category  $category
+     *
+     * @return \Response
+     * @throws Exception
      */
     public function destroy(Category $category)
     {
         $category->delete();
 
-        return redirect()->route('categories.index')->with(['message' => 'Успешно удалено']);
+        return $this->redirectBackWithMessage('info', 'успешно удалено');
     }
 }

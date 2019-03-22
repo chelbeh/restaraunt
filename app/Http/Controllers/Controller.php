@@ -6,8 +6,22 @@ use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+use Response;
 
 class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
+
+    /**
+     * Redirect back to the message with some message
+     *
+     * @param  string  $type
+     * @param  string  $text
+     *
+     * @return Response
+     */
+    protected function redirectBackWithMessage(string $type, string $text): Response
+    {
+        return redirect()->back()->with(['message' => ['type' => $type, 'text' => $text]]);
+    }
 }

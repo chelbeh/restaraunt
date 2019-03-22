@@ -6,10 +6,13 @@ use App\Category;
 use App\Http\Requests\StoreProductRequest;
 use App\Product;
 use App\Http\Controllers\Controller;
+use Exception;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
-class ProductController extends Controller
-{
+class ProductController extends Controller {
+
     /**
      * @var string
      */
@@ -19,7 +22,7 @@ class ProductController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function index()
     {
@@ -31,7 +34,7 @@ class ProductController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function create()
     {
@@ -43,8 +46,9 @@ class ProductController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param StoreProductRequest $request
-     * @return \Illuminate\Http\Response
+     * @param  StoreProductRequest  $request
+     *
+     * @return Response
      */
     public function store(StoreProductRequest $request)
     {
@@ -59,8 +63,8 @@ class ProductController extends Controller
             'meta_title' => $request->meta_title,
             'meta_description' => $request->meta_description,
             'meta_tags' => $request->meta_tags,
-            'in_stock' => $request->has('in_stock') ? true : false,
-            'status' => $request->has('status') ? true : false
+            'in_stock' => $request->has('in_stock'),
+            'status' => $request->has('status')
         ]);
 
         $product->categories()->sync([$request->category_id]);
@@ -71,19 +75,21 @@ class ProductController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Product  $product
-     * @return \Illuminate\Http\Response
+     * @param  Product  $product
+     *
+     * @return Response
      */
     public function show(Product $product)
     {
-        //
+        return view($this->view_prefix . 'show', compact('product'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Product  $product
-     * @return \Illuminate\Http\Response
+     * @param  Product  $product
+     *
+     * @return Response
      */
     public function edit(Product $product)
     {
@@ -95,9 +101,10 @@ class ProductController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param StoreProductRequest $request
-     * @param  \App\Product $product
-     * @return \Illuminate\Http\Response
+     * @param  StoreProductRequest  $request
+     * @param  Product  $product
+     *
+     * @return \Response
      */
     public function update(StoreProductRequest $request, Product $product)
     {
@@ -112,21 +119,22 @@ class ProductController extends Controller
             'meta_title' => $request->meta_title,
             'meta_description' => $request->meta_description,
             'meta_tags' => $request->meta_tags,
-            'in_stock' => $request->has('in_stock') ? true : false,
-            'status' => $request->has('status') ? true : false
+            'in_stock' => $request->has('in_stock'),
+            'status' => $request->has('status')
         ]);
 
         $product->categories()->sync([$request->category_id]);
 
-        return redirect()->back()->with(['message' => ['type' => 'info', 'text'=> 'Успешно обновлено']]);
+        return $this->redirectBackWithMessage('info', 'успешно обновлено');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Product $product
-     * @return \Illuminate\Http\Response
-     * @throws \Exception
+     * @param  Product  $product
+     *
+     * @return Response
+     * @throws Exception
      */
     public function destroy(Product $product)
     {
@@ -138,9 +146,10 @@ class ProductController extends Controller
     /**
      * Remove checked resources from storage.
      *
-     * @param Request $request
-     * @return \Illuminate\Http\RedirectResponse
-     * @throws \Exception
+     * @param  Request  $request
+     *
+     * @return RedirectResponse
+     * @throws Exception
      */
     public function massDestroy(Request $request)
     {

@@ -4,8 +4,11 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Requests\StorePageRequest;
 use App\Page;
+use Exception;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Response;
 
 class PageController extends Controller
 {
@@ -17,7 +20,7 @@ class PageController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function index()
     {
@@ -29,7 +32,7 @@ class PageController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function create()
     {
@@ -42,7 +45,7 @@ class PageController extends Controller
      * Store a newly created resource in storage.
      *
      * @param StorePageRequest $request
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function store(StorePageRequest $request)
     {
@@ -70,7 +73,7 @@ class PageController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param Page $page
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function edit(Page $page)
     {
@@ -84,7 +87,8 @@ class PageController extends Controller
      *
      * @param StorePageRequest $request
      * @param Page $page
-     * @return \Illuminate\Http\Response
+     *
+     * @return \Response
      */
     public function update(StorePageRequest $request, Page $page)
     {
@@ -94,15 +98,15 @@ class PageController extends Controller
             'body' => $request->body
         ]);
 
-        return redirect()->back()->with(['message' => ['type' => 'info', 'text' => 'успешно обновлено']]);
+        return $this->redirectBackWithMessage('info', 'успешно обновлено');
     }
 
     /**
      * Remove the specified resource from storage.
      *
      * @param Page $page
-     * @return \Illuminate\Http\Response
-     * @throws \Exception
+     * @return Response
+     * @throws Exception
      */
     public function destroy(Page $page)
     {
@@ -115,8 +119,8 @@ class PageController extends Controller
      * Remove checked resources from storage.
      *
      * @param Request $request
-     * @return \Illuminate\Http\RedirectResponse
-     * @throws \Exception
+     * @return RedirectResponse
+     * @throws Exception
      */
     public function massDestroy(Request $request)
     {

@@ -5,10 +5,13 @@ namespace App\Http\Controllers\Admin;
 use App\App;
 use App\Http\Requests\StoreAppRequest;
 use App\Http\Controllers\Controller;
+use Exception;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Response;
 
-class AppController extends Controller
-{
+class AppController extends Controller {
+
     /**
      * @var string
      */
@@ -39,7 +42,8 @@ class AppController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param StoreAppRequest $request
+     * @param  StoreAppRequest  $request
+     *
      * @return \Illuminate\Http\Response
      */
     public function store(StoreAppRequest $request)
@@ -55,18 +59,20 @@ class AppController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\App  $app
+     * @param  App  $app
+     *
      * @return \Illuminate\Http\Response
      */
     public function show(App $app)
     {
-        //
+        return view($this->view_prefix . 'show', compact('app'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\App  $app
+     * @param  App  $app
+     *
      * @return \Illuminate\Http\Response
      */
     public function edit(App $app)
@@ -79,9 +85,10 @@ class AppController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param StoreAppRequest $request
-     * @param  \App\App $app
-     * @return \Illuminate\Http\Response
+     * @param  StoreAppRequest  $request
+     * @param  App  $app
+     *
+     * @return Response
      */
     public function update(StoreAppRequest $request, App $app)
     {
@@ -90,15 +97,16 @@ class AppController extends Controller
             'url' => $request->url
         ]);
 
-        return redirect()->back()->with(['message' => ['type' => 'info', 'text' => 'успешно обновлено']]);
+        return $this->redirectBackWithMessage('info', 'успешно обновлено');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\App $app
+     * @param  App  $app
+     *
      * @return \Illuminate\Http\Response
-     * @throws \Exception
+     * @throws Exception
      */
     public function destroy(App $app)
     {
@@ -110,9 +118,10 @@ class AppController extends Controller
     /**
      * Remove checked resources from storage.
      *
-     * @param Request $request
-     * @return \Illuminate\Http\RedirectResponse
-     * @throws \Exception
+     * @param  Request  $request
+     *
+     * @return RedirectResponse
+     * @throws Exception
      */
     public function massDestroy(Request $request)
     {

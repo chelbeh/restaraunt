@@ -45,7 +45,7 @@ class FeedbackController extends Controller
 
         $this->notification($feedback);
 
-        return redirect()->back()->with('message', 'Спасибо, заявка на бронирование принята, мы перезвоним в ближайшее времяы');
+        return back()->with('message', 'Спасибо, заявка на бронирование принята, мы перезвоним в ближайшее времяы');
     }
 
     /**
@@ -95,6 +95,6 @@ class FeedbackController extends Controller
 
     private function notification(Feedback $feedback)
     {
-        Mail::to(env('MAIL_ADMIN', 'chelbeh@gmail.com'))->send(new FeedbackMail($feedback));
+        Mail::to(env('MAIL', 'chelbeh@gmail.com'))->send(new FeedbackMail($feedback));
     }
 }

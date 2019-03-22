@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Http\Requests\StoreCategoryRequest;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Kalnoy\Nestedset\NodeTrait;
