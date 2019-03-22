@@ -10,6 +10,7 @@ use App\Http\Controllers\Controller;
 use App\Product;
 use DB;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Schema;
 
 class ImportCsvController extends Controller
@@ -21,7 +22,7 @@ class ImportCsvController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function index()
     {
@@ -31,7 +32,7 @@ class ImportCsvController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function create()
     {
@@ -42,7 +43,7 @@ class ImportCsvController extends Controller
      * Store a newly created resource in storage.
      *
      * @param StoreImportCsvRequest $request
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function store(StoreImportCsvRequest $request)
     {
@@ -60,8 +61,9 @@ class ImportCsvController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\ImportCsv  $importCsv
-     * @return \Illuminate\Http\Response
+     * @param  ImportCsv  $importCsv
+     *
+     * @return Response
      */
     public function show(ImportCsv $importCsv)
     {
@@ -71,8 +73,9 @@ class ImportCsvController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\ImportCsv  $importCsv
-     * @return \Illuminate\Http\Response
+     * @param  ImportCsv  $importCsv
+     *
+     * @return Response
      */
     public function edit(ImportCsv $importCsv)
     {
@@ -82,9 +85,10 @@ class ImportCsvController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\ImportCsv  $importCsv
-     * @return \Illuminate\Http\Response
+     * @param  Request  $request
+     * @param  ImportCsv  $importCsv
+     *
+     * @return Response
      */
     public function update(StoreImportCsvRequest $request, ImportCsv $importCsv)
     {
@@ -94,8 +98,9 @@ class ImportCsvController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\ImportCsv  $importCsv
-     * @return \Illuminate\Http\Response
+     * @param  ImportCsv  $importCsv
+     *
+     * @return Response
      */
     public function destroy(ImportCsv $importCsv)
     {

@@ -3,16 +3,17 @@
 namespace App\Http\Controllers;
 
 use App\Category;
-use App\Product;
 use File;
-use Illuminate\Http\Request;
+use Illuminate\Contracts\Support\Renderable;
+use Illuminate\Database\Eloquent\Collection;
+use Symfony\Component\Finder\SplFileInfo;
 
 class HomeController extends Controller
 {
     /**
      * Show the application dashboard.
      *
-     * @return \Illuminate\Contracts\Support\Renderable
+     * @return Renderable
      */
     public function index()
     {
@@ -57,7 +58,7 @@ class HomeController extends Controller
     /**
      * Get all images from gallery folder
      *
-     * @return \Symfony\Component\Finder\SplFileInfo[]
+     * @return SplFileInfo[]
      */
     private function images()
     {
@@ -67,7 +68,7 @@ class HomeController extends Controller
     /**
      * Get all categories and products
      *
-     * @return Category[]|\Illuminate\Database\Eloquent\Collection
+     * @return Category[]|Collection
      */
     private function dishes()
     {

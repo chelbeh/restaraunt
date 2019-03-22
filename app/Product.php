@@ -2,22 +2,24 @@
 
 namespace App;
 
+use Eloquent;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Query\Builder;
 
 /**
  * App\Product
  *
- * @property-read \App\Category $categories
+ * @property-read Category $categories
  * @method static bool|null forceDelete()
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Product newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Product newQuery()
- * @method static \Illuminate\Database\Query\Builder|\App\Product onlyTrashed()
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Product query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Product newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Product newQuery()
+ * @method static Builder|Product onlyTrashed()
+ * @method static \Illuminate\Database\Eloquent\Builder|Product query()
  * @method static bool|null restore()
- * @method static \Illuminate\Database\Query\Builder|\App\Product withTrashed()
- * @method static \Illuminate\Database\Query\Builder|\App\Product withoutTrashed()
- * @mixin \Eloquent
+ * @method static Builder|Product withTrashed()
+ * @method static Builder|Product withoutTrashed()
+ * @mixin Eloquent
  */
 class Product extends Model
 {
