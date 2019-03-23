@@ -1,12 +1,19 @@
 @component('mail::message')
-# Introduction
+# Новый бронь стола
 
-The body of your message.
+Добрый день, поступил запрос от клиента на бронирование стола.
 
-@component('mail::button', ['url' => ''])
+Контактные данные
+
+<ul>
+    <li>Имя: {{$feedback->name}}</li>
+    <li>Имя: {{$feedback->phone}}</li>
+</ul>
+
+{{--@component('mail::button', ['url' => ''])
 Button Text
-@endcomponent
+@endcomponent--}}
 
-Thanks,<br>
+Спасибо,<br>
 {{ config('app.name') }}
 @endcomponent
