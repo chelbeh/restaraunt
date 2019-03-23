@@ -24,7 +24,7 @@ class GenerateMenus
 
             foreach ($pages as $page) {
                 $element = $menu->add($page->name, $page->url);
-                $element->link->attr(['class' => 'nav-item nav-link']);
+                $element->link->attr(['class' => 'nav-item nav-link', 'id' => 'menu-anchor-' . $page->url, 'href' => '#']);
             }
         });
 

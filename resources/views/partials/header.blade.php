@@ -13,11 +13,11 @@
                 </p>
             </div>
 
-            <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
+            <div class="col-md-10 col-lg-8 col-xl-7 mx-auto anchor">
                 <form>
                     <div class="form-row">
                         <div class="col-12">
-                            <button type="submit" class="btn btn-block btn-lg btn-danger">Забронировать стол</button>
+                            <button id="menu-anchor-reservation-header" type="submit" class="btn btn-block btn-lg btn-danger">Забронировать стол</button>
                         </div>
                     </div>
                 </form>

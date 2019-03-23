@@ -1,7 +1,7 @@
-<nav class="navbar navbar-expand-md navbar-light navbar-laravel">
+<nav class="navbar navbar-expand-md navbar-light navbar-laravel sticky-top anchor">
     <div class="container">
         <a class="navbar-brand" href="#">
-            <img height="80px" src="/img/logo.png" alt="Ресторан жемчужина">
+            <img height="60px" src="/img/logo.png" alt="Ресторан жемчужина">
         </a>
         {{--<a class="navbar-brand" href="#"> {{ config('app.name', 'Chelbeh') }}</a>--}}
 
@@ -12,6 +12,7 @@
 
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             {!! $mainMenu->asDiv( ['class' => 'navbar-nav mr-auto mt-2 mt-lg-0'] ) !!}
+{{--            <button class="btn btn-outline-danger my-2 my-sm-0" type="submit">Search</button>--}}
         </div>
     </div>
 </nav>

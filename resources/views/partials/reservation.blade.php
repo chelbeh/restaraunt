@@ -1,6 +1,6 @@
-<section class="section bg-section-black">
+<section class="section bg-section-black" id="menu-anchor-reservation-header-content">
 
-    <div class="container">
+    <div class="container" id="menu-anchor-reservation-about-content">
 
         <div class="row">
             <div class="col-md-6">

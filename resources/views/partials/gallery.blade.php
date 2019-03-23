@@ -1,4 +1,4 @@
-<section class="section bg-section">
+<section class="section bg-section" id="menu-anchor-gallery-content">
     <div class="container">
         <div class="text-center">
             <div class="section-header title-font">

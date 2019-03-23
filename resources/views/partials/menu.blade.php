@@ -1,4 +1,4 @@
-<section class="section bg-section">
+<section class="section bg-section" id="menu-anchor-menu-content">
     <div class="corner-img menu-corner">
         {{--<img src="img/menu-corner.png" alt="" class="wow slideInLeft">--}}
     </div>

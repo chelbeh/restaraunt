@@ -13,6 +13,7 @@
     <script src="{{ asset('js/app.js') }}" defer></script>
     <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+    <script src="{{ asset('js/jquery.menu-anchor.min.js') }}" defer></script>
     {{--<script src="https://cdn.jsdelivr.net/npm/vue"></script>--}}
 
 
@@ -37,7 +38,11 @@
 
     @include('partials.footer')
 </div>
-
+<script>
+    $(document).ready(function() {
+        $('.anchor').MenuAnchor();
+    });
+</script>
 @yield('scripts')
 </body>
 </html>

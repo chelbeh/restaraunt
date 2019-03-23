@@ -1,4 +1,4 @@
-<section class="section bg-section">
+<section class="section bg-section anchor" id="menu-anchor-about-content">
     <div class="container">
         <div class="row">
             <div class="col-xl-5 col-lg-5">
@@ -21,7 +21,7 @@
                 <p class="width-90 xs-width-100">Cafe ut perspiciatis unde omnis iste natus error sit voluptatem totam
                     rem aperiam, eaque ipsa quae ab illo inventore veritatis dicta sunt explicabo.</p>
 
-                <button type="submit" class="btn btn-block btn-lg btn-outline-danger">Забронировать стол</button>
+{{--                <button id="menu-anchor-reservation-about" type="submit" class="btn btn-block btn-lg btn-outline-danger">Забронировать стол</button>--}}
 
             </div>
         </div>
