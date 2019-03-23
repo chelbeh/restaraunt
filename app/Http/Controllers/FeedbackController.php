@@ -100,6 +100,6 @@ class FeedbackController extends Controller
 
     private function notification(Feedback $feedback)
     {
-        Mail::to(env('MAIL', 'chelbeh@gmail.com'))->send(new FeedbackMail($feedback));
+        Mail::to(env('MAIL_FROM_ADDRESS', 'chelbeh@gmail.com'))->send(new FeedbackMail($feedback));
     }
 }
