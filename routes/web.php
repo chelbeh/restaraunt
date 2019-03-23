@@ -14,9 +14,6 @@
 Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
-Route::get('/redis', function() {
-
-});
 Route::post('feedback/store', 'FeedbackController@store')->name('feedback.store');
 
 
